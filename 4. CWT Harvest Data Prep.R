@@ -13,7 +13,10 @@ CWT_Releases<-read.csv("CWTReleased.csv")
 #############################################
 #####      Reading recovery data    #########
 #############################################
-CWT_Recoveries<-read.csv("CWTRecoveries.csv")
+CWT_Recoveries_NFH<-read.csv("CWTRecoveries NFH.csv")
+CWT_Recoveries_CNFH<-read.csv("CWTRecoveries CNFH.csv")
+CWT_Recoveries_FRH<-read.csv("CWTRecoveries FRH.csv")
+CWT_Recoveries<-rbind(CWT_Recoveries_CNFH, rbind(CWT_Recoveries_FRH, CWT_Recoveries_NFH))
 #merging Phi batch info with recovery data
 CWT_Recoveries$tag_code<-as.character(CWT_Recoveries$tag_code)
 CWT_Recoveries<-left_join(CWT_Recoveries, CWT_Releases)

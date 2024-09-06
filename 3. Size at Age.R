@@ -1,12 +1,15 @@
 ################################
 ### Size at age using MLE ######
 ################################
-setwd("C:/Users/Emily/Box/Sacramento River Fall Chinook/Cohort Reconstruction")
+setwd("C:/Users/Emily/Box/Sacramento River Fall Chinook/Methodology Review")
 library(bbmle)
 library(ggplot2)
 library(dplyr)
 library(lubridate)
-CWT_Recoveries<-read.csv("CWTRecoveries.csv")
+CWT_Recoveries_NFH<-read.csv("CWTRecoveries NFH.csv")
+CWT_Recoveries_CNFH<-read.csv("CWTRecoveries CNFH.csv")
+CWT_Recoveries_FRH<-read.csv("CWTRecoveries FRH.csv")
+CWT_Recoveries<-rbind(CWT_Recoveries_CNFH, rbind(CWT_Recoveries_FRH, CWT_Recoveries_NFH))
 SiteCodes<-read.csv("Site Codes.csv")
 Size_Limits<-read.csv("Size limits.csv")  
 
